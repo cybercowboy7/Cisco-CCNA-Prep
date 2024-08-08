@@ -7,3 +7,87 @@ Network Characteristics:
 - Scalability
 - Reliability
 
+
+OSI Model: Open Systems Interconnect Model
+- How computer communicate with one another
+- Seven layer approach. A layer servers the layer above it and is served by the layer below it. Encapsulates and then De-encapsulates packets
+  
+  - Layer 7: Application
+    - Provides network services to the applications of the user
+    - Does not provide services to any other OSI layer
+    - Establishes availability of intended communication partners and synchronizes and establishes agreement
+    on procedures for error recovery and control of data integrity
+
+  - Layer 6: Presentation
+    - Ensures information that is sent at teh application layer of one system is readable by the application
+    of another system.
+    - Can translate among different data formats using a common format
+
+  - Layer 5: Session
+    - Establishes, manages and terminates sessions between two communicating hosts
+    - Manages two hosts data exchange
+
+  - Layer 4: Transport
+    - TCP/UDP, Port
+    - Defines services to segment, transfer, and reassemble the data for individual communications between the end devices
+    - Breaks down large files into smaller segments that are less likely to incur transmission problems
+    - More reliable versus faster
+
+  - Layer 3: Network 
+    - IP address, Routers
+    - Source and destination IP address
+    - Provides connectivity and path selection between two host systems that may be located on geographically separated networks
+    - Provides logical addressing (IP addresses)
+
+  - Layer 2: Data Link
+    - Ethernet MAC Address, Switches
+    - Source and destination layer 2 addresses
+    - Defines how data is formatted for transmission and how access to physical media is controlled
+    - Includes error detection and correction to ensure a reliable delivery of the data
+
+  - Layer 1: Physical
+    - Hubs
+    - Enables bit transmission between end devices
+    - Defines specifications for activating, maintaining, and deactivating the physical link between end devices
+
+
+TCP/IP Stacks
+- This is a protocol stack which consists of multiple protocols including TCP and IP
+- OSI Model is conceptual while the TCP/IP stack is used to transfer data in production networks
+- Only 4 layers
+- Layer 4: Application 
+    - Consists of Applications, Presentation and Session layers
+    - Represents data users, encodes and controls the dialog
+    - Data Protocol data units
+- Layer 3: Transport
+    - Supports communication between end devices across a divers network
+    - Segment Protocol Data Units
+- Layer 2: Internet
+    - Provides logical addressing and determines the best path through the network
+    - Packet Protocol Data Units
+- Layer 1: Network Access
+    - Controls the hardware devices and media that make up the network
+    - Frame Protocol Data Units
+
+
+Upper 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
