@@ -1,1 +1,93 @@
+Cisco Operating Systems
+
+- Cisco Nexus and MDS data center switch product lines run on NX-OS
+
+- IOS-XR operating system runs on the servie provider NCS, CRS, ASR9000 and XR12000 series routers
+
+- IOS-XE runs on the ASR1000 series service provider routers
+
+- The CLI for the other OS are nearly identical to IOS
+
+
+Connecting to a Cisco Device over the Network
+
+- Real world scenarios you would utilize Putty to connect to a real router or switch over the network
+
+- To get to the CLI you will use SSH over IP address
+
+- Telnet is another protocol to get to the CLI but it is not encrypted
+
+- Secure login will be enforced through integration with a centralized Authentication, Authorization and Accounting Server
+
+- There will usually be a separate management network to connect to devices experiencing issues
+  - Known as Out of Band Management
+  - In band is if you utilize production environment network to manage devices
+
+
+Initial Connection to Cisco Device
+
+- Cisco devices do not usually have a default IP address, so we need to set one up before we can connect to it over the network
+
+- You will need to utilize a console connection to get to the cisco CLI in order to assign an IP address to access it via the internet
+  - Console cable = DB9 to RJ45
+  - Can get a serial DB9 to USB in order to go from laptop to DB9 to RJ45 to the switch or router
+  - They have new cables with USB to Mini-USB to better support
+
+- Plug cable into the console port in order to manage the device
+
+- Can also utilize console port in order to view the device booting up from a console connection but this is not possible with SSH
+because the system must have booted already before the IP address will be live
+
+- Brand New Router Commands:
+
+    - no to startup config
+    - Yes to autoconfigure
+    - This brings us to user exec prompt (Router>)
+    - If you type ? this will bring up a series of commands that can be used within this level of access
+    - Hitting enter key will allow it to who more and more commands
+    - To improve amount of scrollback you can right click putty icon in top left corner and click settings to edit the lines of scrollback to 2000
+    - enable (en) command gets us to privelege exec mode (Router#)
+    - disable command will bring us down a level to user exec mode
+    - show command allows us to get information about the device
+      - Can use sh *space* ? in order to see all the possible options for the show command and any other commands
+    - sh aaa ? will allow you to see all show aaa commands you can utilize as well
+    - Tab completion is also supported for the CLI
+    - debug is a great command as well to see real-time information such as live packets etc
+    - at enable prompt hit configure terminal or conf t in order to configure your router. This bring us to global configuration (Router(config)#)
+
+    - In global config mode
+      - hostname Router1 can allow you to change the name of the router to Router1
+      - Ctrl A can get you to the start of your command line
+    - Interface configuration level you hit interface fastethernet 0/0 (or whatever int you want) to get to interface level  
+    - To get out you hit exit to go down one level
+    - To get to the lowest level you can use end command or Ctrl C
+    - show ip interface brief and show run config are very popular commands in order to get information on your router configs and interface runtimes
+
+
+Cisco IOS Configuration Management
+
+  - config t
+  - hostname Router1
+    - Change takes effect immediately and goes into running config. Does not go into startup config
+  - In order to put into startup config, you need to use the command copy run start (in priv exec mode)
+  - Can manually copy running config to flash
+    - copy run flash:my-config
+  - sh flash to verify backup
+  - Can restore from backup if need be
+    - erase startup
+    - copy flash:my-config start
+  - Not good to backup device to same device
+    - Copy running config to tftp server
+    - copy run tftp
+    - IP of tftp server
+    - name of filename
+    - Backs up config on server
+  - How to view config file in flash
+    - more flash:my-config
+
+  - IOS operating system is stored in Flash  
+  - Startup config is stored in NVRAM
+  - Running config is stored in RAM (Loaded into RAM from the startup config when the device boots up)
+
+
 
