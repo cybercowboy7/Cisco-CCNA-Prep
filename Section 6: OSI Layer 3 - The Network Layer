@@ -1,1 +1,154 @@
+Layer 3 - The Network layer
 
+- Responsible for routing packets to their destination and for Quality of Service
+
+- IP is the best known layer 3 protocol
+
+- Connectionless protocol with no acknoqledgements at Layer 3
+
+- ICMP and IPSec are other Layer 3 protocols
+
+
+IP Addressing
+
+- Uses IP addressing to partition the overall network into subnets
+
+- Improves performance and security and makes troubleshooting easier
+
+- Layer 2 MAC addresses use on big flat addressing scheme. There is no logical separation between networks at Layer 2
+
+
+IP Header
+
+- 4-bit version 
+- Header length
+- Type of service
+- 16 bit ID
+- 8 bit protocol (TCP/UDP)
+- 8-bit time to live (ttl)
+- 16-bit header checksum
+- 32-bit source IP address
+- 32-bit destination IP address
+- Header options
+- Data
+
+
+Unicast, Broadcast and Multicast Traffic
+
+- Unicast = single host
+
+- Broadcast = all hosts on the subnet
+    - Routers do not forward broadcast traffic
+
+- Multicast = multiple interested hosts
+
+
+
+Counting in Binary
+
+- 0 or 1
+
+- For each column in a number we have two choices, 0 or 1
+
+- everytime we add a column to the left, the value is multiplied by 2
+
+- 236 = 11101100
+
+- 179 = 010110011
+
+
+IPv4 Addresses
+
+- 32 bits long
+- Written as 4 octets in dotted decimal format
+- 192.168.10.15
+- Each octet is 8 bits long (4 x 8 = 32)
+- How to get IP address on cisco IOS
+    - en
+    - show ip interface brief
+    - show interface for more information 
+
+
+Static vs Automatic Addressing
+
+- IP address is usually set manually on servers, printers and network devices such as routers and switches. 
+it is usually assigned automatically through the Dynamic Host Configuration Protocol (DHCP) on Desktop computers
+
+
+
+IPv4 Address Octets
+
+- Each octet in the IP address has a value ranging from 0 to 255
+
+- 128 64 32 16 8 4 2 1 = 255
+
+- 192.168.10.15 = 11000000.10101000.00001010.00001111
+
+- To set a boundary between logical networks (subnets), the IP address is combined with a subnet mask
+
+
+The Subnet Mask
+
+- A host can send traffic directly to another host on the same subnet via switches
+
+- For a host to send traffic to another host in a different subnet, it must be forwarded by a router
+
+- Host needs to understand if the destination is on the same or a different subnet in order to know how to send it
+
+- Subnet mask is used for this
+
+- Subnet mask is 32 bits long, and can be written in dotted decimal or slash notation
+
+
+Network and Host Portion
+
+- Host's IP address is divided into a network portion and a host portion
+
+- Subnet mask defines where the boundary is
+
+- 192.168.10.15 255.255.255.0  
+    - Write IP address out in binary notation (11000000.10101000.00001010.00001111)
+    - Write subnet mask in binary underneath  (11111111.11111111.11111111.00000000)
+    - IP address is compared ('masked') with the subnet mask
+    - A '1' in the subnet mask indicates that bit in the IP address is part of the network address
+    - A '0' indicates the bit is part of the host address
+    - SUbnet mask always begins with contiguous '1's
+
+- HOst portion of address is available to be allocated to end hosts on the network
+
+
+Host Addresses
+
+- Host portion of the address specifies the individual host and must be unique on that subnet
+
+- Hosts do not have to be numbered sequentially
+
+- If the network portion of the address is 10.10.10, you can have a host with IP address 10.10.10.10 and 10.10.10.20
+
+- You cannot have two different hosts both with IP address 10.10.10.10
+
+
+The Network Address (Network ID)
+
+- All 0's in the host portion designates the network address and is not allowed to be allocated to a host
+
+- In our example the network address is 192.168.10.0
+
+
+The Broadcast Address
+
+- All 1's designates the directed broadcast address for the subnet
+
+- Traffic with this destination address will be sent to all hosts in the subnet
+
+- In our example the broadcast address is 192.168.10.255
+
+- This leaves 192.168.10.1 to 192.168.10.254 to be allocated to other hosts
+
+
+Subnet Mask in Slash notation
+
+- 255.255.0.0 = /16
+- 255.255.255.255 = /32
+- 255.255.255.0 = /24
+- 255.255.248.0 = /21
