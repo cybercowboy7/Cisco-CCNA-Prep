@@ -1,0 +1,127 @@
+The Transport Layer Header, TCP and UDP
+
+- Provides transparent transfer of data between hosts and is responsible for end-to-end error recovery and flow control
+
+- Flow control is the process of adjusting the flow of data from the sender to ensure that the receiving host can handle all of it
+
+
+Session Multiplexing
+
+- Host is able to support multiple sessions simoultaneously and manage the individual traffic streams over a single link
+  - SMTP port 25, HTTP 80 can all be happening at the same time to multiple different receivers
+
+
+Layer 4 Port Numbers
+
+- Layer 4 destinatin port number is used to identify the upper layer protocol
+
+- HTTP uses port 80, SMTP email uses port 25
+
+- Sender also adds a source port number to the Layer 4 header
+
+- Combination of source and destination port number can be used to track sessions
+
+
+TCP
+
+- Transport Control Protocol and User Datagram Protocol are the most common Layer 4 protocols
+
+- TCP is connection oriented - once a connection is established, data can be sent bidirectionally over that connection
+
+- TCP carries out swquencing to ensure segments are processed in the correct order and none are missing
+
+- TCP is reliable - the receiving host sends acknowledgments back to the sender. Lost segments are resent
+
+- TCP performs flow control
+
+
+TCP 3-way Handshake
+
+- SYN/SYN_ACK/ACK : connection is established
+
+
+OSI Reference Model - Encapsulation
+
+  SENDER
+- Layer 7: Application encapsulates Layer 6 header
+- Layer 6: Presentation Layer Encapsulates the Layer 5 header
+- Layer 5: Session Layer encapsulates the Layer 4 header
+- Layer 4: Transport Layer encapsulates the Layer 3 header
+- Layer 3: Network Layer encapsulates the Layer 2 header
+- Layer 2: Data link Layer encapsulates the Layer 1 header
+- Layer 1: Physical Layer sends data to the receiver
+
+
+Layer 4 TCP Header
+
+  Consists of:
+- Source Port (16)
+- Destination Port (16)
+- Sequence number (32)
+    - 
+- Acknowledgment Number (32)
+    - 
+- Header Length (4)
+- Reserved (6)
+    - 
+- Code Bits (6)
+    - Flow Control
+- Window (16)
+    - Flow Control
+- Checksum (16)
+    - Check to see if traffic got corrupted in transit
+- Urgent (16)
+- Options (0 or 32 if any)
+- Data (Varies)
+
+
+UDP 
+
+- The User Datagram Protocol sends traffic best effort
+- UDP is not connection oriented. No handshake
+- Does not carry out sequencing to ensure segments are processed in the correct order and none are missing
+- Not Reliable. Receiving hosts does not send acks back to the sender
+- Does not perform flow control
+- If error detection and recovery is required it is up to the upper layers to provide it
+
+
+UDP Header
+
+- Source port
+- Destination port
+- Length
+- UDP Checksum
+- Data
+- Format of the UDP datagram
+
+
+TCP vs. UDP
+
+- Real time applications such as voice and video cannot afford the extra overhead of TCP so they user UDP
+- Some applications can use both TCP and UDP
+
+
+Common Applications and Their Destination Ports
+
+- TCP:
+    - FTP (21)
+    - SSH (22)
+    - Telnet (23)
+    - HTTP (80)
+    - HTTPS (443)
+
+- UDP:
+    - TFTP (69) 
+    - SNMP (161)
+
+TCP & UDP:
+    - DNS (53)
+
+
+
+
+
+
+
+
+
