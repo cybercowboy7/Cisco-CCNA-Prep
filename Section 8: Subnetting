@@ -168,6 +168,17 @@ Subnetting Large Networks
     - Netwok address  = 135.15.10.136
 
 
+Subnetting Question Categories
+
+- Given a network requirement of 'x' amount of subnets and 'y' amount of hosts per subnet,
+what network address and subnet mask should be used for each subnet
+
+- Given a particular IP address and subnet mask, calculate:
+  The subnet's network address
+  The broadcast address
+  The range of valid host IP addresses
+
+
 
 
 
