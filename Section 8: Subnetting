@@ -131,6 +131,36 @@ You could not have a subnet with 14 hosts and another subnet with 64 hosts in th
 - All modern routing protocols support VLSM which allows us to size subnets differently according to how many hosts they have
 
 
+Subnetting Considerations
+
+- How many locations do we have in the network
+
+- How many hosts are in each location
+
+- What are the IP addressing requirements for each location (Should different departments or types of host be in different subnets)
+
+- What size is appropriate for each subnet (Don't waste addresses, but leave room for growth)
+
+
+Subnetting Design Steps
+
+- Find the largest segment and allocate a suitable subnet size for it
+
+- Allocate this subnet at the start of the address space
+
+- Continue going down the list
+
+- In the real world you want a scalable design - you will likely allocate spare subnets for future growth, and leave
+space in the subnets for additional hosts
+
+- In the CCNA exam do exactly what the question asks, don't worry about whether it best practice or not
+
+
+
+
+
+
+
 
 
 
