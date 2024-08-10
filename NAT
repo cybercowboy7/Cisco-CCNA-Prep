@@ -1,0 +1,9 @@
+No seamless migration path from IPv4 to IPv6
+
+- NAT was implemented to workaround this issue
+
+- Organization can use private IP addresses on their inside network, but still grant
+their hosts internet access by translating them to their outside public IP address
+
+- Many hosts on the inside can share a few or a single public IP address on the 
+outside
