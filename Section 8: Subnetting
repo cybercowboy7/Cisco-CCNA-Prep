@@ -156,6 +156,20 @@ space in the subnets for additional hosts
 - In the CCNA exam do exactly what the question asks, don't worry about whether it best practice or not
 
 
+Subnetting Large Networks
+
+- Class B 135.15.0.0/16
+
+- 135.15.10.138/29
+    - Magic number method
+    - Subnet mask = 255.255.255.248
+    - Subtract value in the subnetted octet from 256: 256-248 = 8
+    - The network address goes up in multiples of 8
+    - Netwok address  = 135.15.10.136
+
+
+
+
 
 
 
