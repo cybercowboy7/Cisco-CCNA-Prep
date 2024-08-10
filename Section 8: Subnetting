@@ -1,3 +1,5 @@
+SUBNET CALCULATOR: http://www.subnet-calculator.com/
+
 CIDR Classless Inter-Domain Routing
 
 - Problem with classful addresses was that if a company had more than 254 hosts they would need to be assigned a Class B network
