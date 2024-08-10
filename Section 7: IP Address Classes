@@ -1,0 +1,139 @@
+Subnet Size
+
+- Bigger the host portion of the network, the more hosts we can have
+
+- If subnet mask = /8, we have 24 bits available to allocate to hosts
+
+
+How Internet Addressing was meant to work
+
+- Private IP addresses with NAT (Network Address Translation) are currently deployed in the majority of enterprise networks as a workaround
+
+- All hosts which can communicate are meant to have a public IP address
+
+
+Class A Addresses
+
+- Class A addresses are assigned to networks with a very large number of hosts
+
+- The high order bit in a class A address is always set to zero (128 is set to 0)
+
+- The default subnet mask is /8
+
+- Valid network addresses range from 1.0.0.0 to 126.0.0.0/8
+
+- This allows for 126 networks and 16,777,214 hosts per network
+
+
+Reserved Class A addresses
+
+- 0.0.0.0/8 is reserved and signifies 'this network'
+
+- 0.0.0.1 to 0.255.255.255 are not valid host addresses
+
+- 127.0.0.0/8 in the Class A space is reserved as the loopback address for testing local computer
+
+- 127.0.0.1 to 127.255.255.255 are not valid host addresses
+
+- wiped out 35,554,428 address from global address pool
+
+
+Subnetting
+
+- Company would not put all 16,777,214 hosts into a single logical network
+
+- They would split the /8 address allocation into smaller subnets and allocate these to different offices and types of hosts
+
+- Example: if they received 15.0.0.0/8, they could allocate the subnet 15.0.1.0/24 to sales computer in NY, 
+15.0.2.0/24 to accounting PCs and 15.0.9.0/24 to sales computers in boston
+
+- This is called subnetting
+
+
+Class B Addresses
+
+- Assigned to medium-sized to large-sized networks
+
+- The two high order bits in a class B address are always set to binary 10. 
+
+- The default subnet mask is /16
+
+- Valid network addresses range from 128.0.0.0 to 191.255.0.0/16
+
+- This allows for 16,384 networks and 65,534 hosts per network
+
+- This would also be subetted in the real world environment
+
+- 131.192.0.0/16
+
+
+Class C Addresses
+
+- These are used for small networks
+
+- The three high order bits in a class C address are always set to binary 110
+
+- The default subnet mask is /24
+
+- Valid network addresses range from 192.0.0.0 to 233.255.255.0/24
+
+- This allows for 2,0987,152 networks and 254 hosts per network
+
+- 195.0.192.0/24
+
+
+PRIVATE ADDRESSES
+
+- Range of reserved private addresses in each class
+
+- Valid to be assigned to hosts but they are not routable on the public internet
+
+- Originally designed for hosts in a closed private network with not internet connectivity
+
+- Class A: 10.0.0.0 to 10.255.255.255
+
+- Class B: 172.16.0.0 to 172.31.255.255
+
+- Class C: 192.168.0.0 to 192.168.255.255
+
+
+Class D
+
+- Reserved for IP multicast addresses
+
+- The four high order bits in a class D are always set to binary 1110
+
+- These addresses are not allocated to hosts and there is no default subnet mask
+
+- Valid addresses range from 224.0.0.0 to 239.255.255.255
+
+- 227.1.192.5
+
+
+Class E
+
+- experimental and reserved for future use
+
+- High order bits in a class E address are set to 1111
+
+- These addresses are not allocated to hosts and there is no default subnet mask
+
+- Addresses range from 240.0.0.0 to 255.255.255.255
+
+- 255.255.255.255 is the broadcast address for 'this network'
+
+- 243.1.192.10
+
+
+IP Address Class Summary
+    Class    First Octet    Slash    Dotted Decimal
+- Class A : 1 - 126      :  /8    :    255.0.0.0
+- Class B : 128 - 191    : /16    :    255.255.0.0
+- Class C : 192 - 223    : /24    :    255.255.255.0
+- Class D : 224 - 239    
+- Class E : 240 - 255
+
+
+
+
+
