@@ -1,0 +1,49 @@
+The Data Link Layer
+
+- Frames are encoded and decoded into bits at Layer 2
+
+- Error detection and correction for the physical layer can be provided here
+
+- Ethernet is the Layer 2 medium used on Local Area Networks
+
+- Layer 2 Protocols:
+    - ARP 
+    - CDP (Cisco Discovery Protocol)
+    - L2TP
+    - Link Layer Discovery Protocol
+    - PPP (Point to Point Protocol)
+
+
+Ethernet Header
+
+- Preamble
+- Destination Address
+- Source Address
+- Length/Ethertype
+- Data
+- FCS (Frame check sequence)
+
+
+Media Access Control MAC Address
+
+- Ethernet uuses a 48-bit hexadecimal MAC address
+
+- First 24 bits is the OUI (Organizationally Unique Identifier) which uniquely identifies the manufacturer
+of the Ethernet port. The OUI is assigned by the IEEE
+
+- The last 24 bits is vendor assigned
+
+- The burned in MAC address on every NIC port in the world is globally unique
+
+- Example: 00:50:56:C0:00:08
+
+
+How to get information on the MAC address
+
+- ipconfig /all (windows)
+
+- ifconfig (linux and MAC)
+
+
+
+
