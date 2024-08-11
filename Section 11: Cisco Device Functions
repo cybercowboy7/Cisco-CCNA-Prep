@@ -1,0 +1,137 @@
+Hubs and switches
+
+- End hosts in a LAN such as PCs, servers and printers plug into them with an EThernet cable
+
+- The end hosts can then communicate with each other through the hub or switch
+
+
+Hubs - Half duplex and Shared collision domain
+
+- Hubs operate in half-duplex mode
+
+- Hosts cannot send and receive data at the same time, they can only do one or the other
+
+- All hosts share the same collision domain - only one device can transmit at a time
+
+- If two hosts send at teh same time a collision will occur
+
+- Hosts use Carrier-Sense Multiple Access with Collision Detection (CSMA/CD) to detect collisions and resend
+
+
+Switches - full duplex and separate collision domains
+
+- Can operate in either full or half duplex
+
+- They always operate in full duplex
+
+- Hosts can send and receive data at the same time
+
+- All hosts have their own dedicated collision domains
+
+- Collision detection is not required
+
+
+Hubs operate at Layer 1
+
+- They are not MAC aware
+
+- Whenever a frame is received it is flooded out all ports apart form the one it was received on
+
+- All attached hosts must process all packets
+
+
+Switches operate at layer 2
+
+- MAC address aware
+
+- Switch will look at source MAC address in the layer 2 header
+
+- Learned MAC address will be added to the switche's MAC address table, which maps MAC addresses to ports
+
+- If a unicast frame is later received with a known MAC address as the destinatino, the switch will send the frame out only the relevant port
+
+- Better performance and security
+
+- Whenever a frame is received for the broadcast address or an unknown unicast destination (because the switch hasn't learned the MAC address
+yet) it will be flooded out all ports apart from the one it was received on
+
+
+Routers
+
+- Routers know the paths to get to the different IP subnets on a network
+
+- They are required to send traffic from one subnet to another
+
+- Operate at Layers 3, 2 and 1 and will typically have awareness up to layer 7
+
+
+Switches vs Routers
+
+- Switches are Layer 2 aware and can switch traffic between hosts on the LAN
+
+- Routers are Layer 3 aware and can switch traffic between different networks
+
+- Switches typically only support Ethernet interfaces
+
+- Switches will typically only support Ethernet interfaces
+
+- Switches will typically have more ports than routers
+
+- Switches forward broadcast traffic, routers do not by default
+
+
+Layer 3 Switches
+
+- Advanced swithces are layer 3 aware and can route traffic between different IP subnets
+
+- Layer 3 switches will typically support only Ethernet interfaces and will have more ports than routers
+
+
+Security
+
+- Cisco ASA (Adaptive Security Appliance) Firewalls
+
+- Cisco SourceFire FirePower IPS
+
+
+Wireless
+
+- Cisco Wireless LAN controllers
+
+- Cisco Wireless Access Points
+
+
+Collaboration
+
+- Cisco Unified Communications Manager
+    - PBX for phones
+
+- Cisco IP phones
+
+- Cisco TelePresence
+
+- Cisco WebEx
+
+
+Data Center
+
+- Cisco UCS (Unified Computing System)
+
+- Cisco Nexus Switches
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
