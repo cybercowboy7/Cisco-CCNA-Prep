@@ -1,0 +1,11 @@
+DNS Client
+
+  ip domain-lookup
+  ip name-server 172.23.4.1
+  ip domain-name flackboxA.lab (primary domain name)
+  ip domain-list flackboxB.lab (additional DNS suffixes to search)
+
+Additional DNS server commands
+
+  ip dns server
+  ip host LinuxA 172.23.4.2
