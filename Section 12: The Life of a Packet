@@ -1,0 +1,18 @@
+The Domain Name System
+
+- Network Layer Protocol
+
+- DNS resolves a FQDN such as www.cisco.com to an IP address
+
+- Enterprises will typically have an internal DNS server which can resolve the IP addresses of internal hosts
+
+- Hosts will send their DNS queries to this server
+
+- If the DNS server cannot resolve the query, it will forward the request out to public DNS servers on the internet
+
+- DNS requests are sent using UDP port 53 (can fail over to TCP)
+
+
+
+
+
