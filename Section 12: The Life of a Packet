@@ -28,6 +28,19 @@ Address Resolution Protocol (ARP): IP to MAC Address Resolution
 - Sender will send a ARP broadcast request looking for x.x.x.x in order to find the MAC address of the receiver
 
 
+Routed Traffic
+
+- When the sender and receiver are on different IP subnets, the traffic must be forwarded by a router
+
+- Send ARP request for default gateway
+
+- Default gateway will send its MAC address back to sender
+
+- Sender will now send traffic to destination IP on other network with the MAC address of the default gateway
+
+- Router will then send ARP request for destination IP to get its MAC address
+
+
 
 
 
