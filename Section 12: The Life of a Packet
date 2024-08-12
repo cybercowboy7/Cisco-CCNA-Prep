@@ -13,6 +13,24 @@ The Domain Name System
 - DNS requests are sent using UDP port 53 (can fail over to TCP)
 
 
+Address Resolution Protocol (ARP): IP to MAC Address Resolution
+
+- ARP operates at layer 2
+
+- Sender needs to know the receiver's IP address and MAC address to form the packet it's going to send
+
+- We can point the sender directly at the destination IP address or at a user friendly FQDN such as www.cisco.com
+
+- DNS Domain Name System maintains a mapping of FQDNs to IP addresses
+
+- ARP is used to map the IP address to MAC address
+
+- Sender will send a ARP broadcast request looking for x.x.x.x in order to find the MAC address of the receiver
+
+
+
+
+
 
 
 
