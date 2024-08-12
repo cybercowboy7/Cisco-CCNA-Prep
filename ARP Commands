@@ -1,0 +1,11 @@
+- ARP replies are saved in a hosts ARP cache so it doesn't need to send an ARP request every time it wants to communicate
+
+- Windows
+  arp -a       View ARP cache
+
+  netsh interface ip delete arpcache      Clear ARP cache
+
+- Linux
+  arp -n
+
+  ip -s -s neigh flush all
