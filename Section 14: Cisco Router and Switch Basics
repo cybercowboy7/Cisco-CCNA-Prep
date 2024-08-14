@@ -1,1 +1,156 @@
+Router IP addresses
+
+- Provides connectivity between different IP subnets
+
+- An IP address must be configured on the interfaces in each subnet
+
+    interface FastEthernet 0/0
+    ip address 192.168.0.1 255.255.255.0
+    no shutdown
+    !
+
+    interface FastEthernet 0/1
+    ip address 192.168.1.1 255.255.255.0
+    no shutdown
+
+
+Switch Management IP Address
+
+- A layer 2 switch is not IP routing aware
+
+- It does support a single IP address for management
+
+- The IP address and subnet mask is configured on the Switched Virtual Interface (SVI) for the default VLAN 1
+
+- A default gateway also needs to be configured to allow connectivity to other subnets
+
+    interface vlan 1
+    ip address 192.168.0.10 255.255.255.0
+    no shutdown
+    exit
+    ip default-gateway 192.168.0.1
+
+
+Interface Descriptions
+
+- Interface descriptions can aid troubleshooting
+
+    interface FastEthernet 0/1
+    description Link to R1
+
+
+The Setup Wizard
+
+    en
+    setup          (this brings us to the setup wizard)
+
+
+Infterface Speed and Duplex
+
+- Interface speed and Duplex is set to 'auto' by default
+
+- Both sides of a link should auto-negotiate to full duplex and the fastest available speed
+
+- Best practice is to manually set the speed and duplex on ports which are connected to another network infrastructure device or server
+
+- It is very important to set matching speed and duplex settings on both sides of the link
+
+    interface FastEthernet 0/1
+    duplex full
+    speed 100
+
+
+Verification Commands
+
+    show running-config
+    show ip interface brief
+    show run interface vlan 1
+    show interfae vlan 1
+    show version
+
+
+CDP Cisco Discovery Protocol
+
+- Cisco Discovery Protocol (CDP) is a Cisco proprietary Layer 2 protocol
+
+- It is used to share information with other directly connected Cisco equipment, such as the operating system version and IP address
+
+- This aids in troubleshooting by allowing administrators to map out how Cisco devices are connected to each other
+
+- It is enabled by default on most Cisco equipment
+
+- It works at Layer 2 so it is not necessary for the device to have an IP address
+
+    cdp run
+    no cdp run
+    Switch(config-if)# no cdp enable      (this is done on interface level in order to allow cdp on other interfaces but limit what is seen by other organizations etc.)
+    show cdp
+    show cdp neighbors
+    show cdp neighbors detail
+
+
+LLDP Link Lyaer Discovery Protocol
+
+- LLDP is an open standard protocol which provides similar information to CDP
+
+- Differences with CDP:
+    - Depending on the switch and version it may be disabled by default
+    - It is only supported on physical interfaces
+    - It can only discover up to one device per port
+    - It can discover Linux servers
+
+    lldp run
+    no lldp run
+    no lldp transmit
+    no lldp receive
+    show lldp
+    show lldp neighbors
+    show lldp neighbors detail
+
+
+Layer 1 Troubleshooting
+
+- Basic switch troubleshooting involves checking for layer 1 and 2 issues
+
+- Copper and Fibre cables are liable to break if not handled correctly
+
+- Common Layer 1 problems include:
+    - The interface is administratively shut down
+    - The cable is disconnected on either or both ends
+    - The device on the other end of the cable is powered off
+    - Broken connectors which cause loose connections
+    - Bent or stretched cables which lead to broken wires or fibres
+    - Electro-magnetic interference sources such as motors or microwaves which cause errors in transmission (new cable is less susceptible to this)
+
+    show ip interface brief
+    - "administratively down" - Issue 'no shutdown'
+    - "down/down" - This indicates a Layer 1 issues. Check the interface is cabled at both ends and the device on the other side is powered on
+    - "up/down" - This indicates a layer 2 issue or speed mismatch. Check the interface configuration matches on both sides of the link
+
+
+Speed and Duplex Mismatches
+
+- A possible error is speed and/or duplex mismatches
+
+- Incorrect speed settings can cause the interface to operate below its maximum speed
+
+- Speed mismatches will typically bring the interface down
+
+- The interface will typically stay up with duplex mismatches but performance will be terrible because of collisions
+
+- The show interface command will report an excessively high number of errors in this case.
+
+- Both sides of a link must be set the same, as either auto or manually configured
+
+- Cisco devices default to auto
+
+- Best practice is to manually configure ports attached to other network infrastructure devices or servers
+
+- 
+
+
+
+
+
+
 
