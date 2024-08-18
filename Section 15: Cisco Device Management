@@ -1,1 +1,11 @@
+Cisco Device Memory
+
+    - Cisco Router and switches have 4 built-in memory locations:
+        - ROM : Read only Memory
+        - Flash : newer devices use removable compactFlash
+        - NVRAM : Non-Volatile RAM
+        - RAM : Random Access Memory
+    - An External USB device can also be used
+
+
 
