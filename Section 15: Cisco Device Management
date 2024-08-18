@@ -155,6 +155,8 @@ or USB
             copy running-config tftp
             copy startup-config usb
 
+            copy run flash       this copies running config to flash
+
 
 Upgrading the IOS System Image
 
