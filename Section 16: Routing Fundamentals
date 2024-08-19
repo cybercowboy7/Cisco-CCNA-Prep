@@ -1,0 +1,72 @@
+Router Functions
+
+  - Router has two main functions
+    - Determining the best path to available networks
+    - Forwarding traffic to those networks
+
+
+The Routing Table
+
+  - The best available path or paths to a destination network are listed in a router's routing table and will be used for forwarding traffic
+
+  - A routing table consists of directly connected networks and routes configured statically by the administrator or dynamically learned through 
+a routing protocol.
+
+
+Connected and Local Routes
+
+  - The admin configures IP addresses on the router's interfaces
+
+      show ip route
+
+  - This will automatically enter connected routes into the routing table
+
+  - From IOS 15, local routes will also be added to the routing table
+
+  - Local routes always have a /32 mask and show the IP address configured on the interface
+
+
+Static Routes
+
+  - If a router receives traffic for a network which it is not directly attached to, it needs to know how to get there in order to forward the traffic
+
+  - An administrator can manually add a static route to the destination, or the router can learn it via a routing protocol
+
+      ip route 10.1.0.0 255.255.255.0 10.0.0.2           this adds a static route to the routing table
+
+
+Summary Routes
+
+  - For static routing, summary routes lessen administrative overhead and memory usage on the routers
+      ip route 10.1.0.0 255.255.0.0 10.0.0.2
+
+  - To summarize the range 10.1.0.0 to 10.1.3.0:
+      ip route 10.1.0.0 255.255.252.0 10.0.0.2
+
+
+Longest Prefix Match
+
+  - When there are overlapping routes, the longest prefix will be selected
+      ip route 10.1.0.0 255.255.0.0 10.0.0.2
+      ip route 10.1.3.0 255.255.255.0 10.0.3.2
+
+
+Load Balancing
+
+  - When multiple equal length routes are added for the same destination, the router will add them all to the routing table and load balance between them
+      ip route 10.1.0.0 255.255.0.0 10.0.0.2
+      ip route 10.1.0.0 255.255.0.0 10.0.3.2
+
+
+Default Route (Gateway of Last Resort)
+
+  - ip route 10.1.0.0 255.255.0.0 10.0.0.2
+  - ip route 10.1.3.0 255.255.255.0 10.0.3.2
+
+  - ip route 0.0.0.0 0.0.0.0 203.0.113.2
+
+
+
+
+
+
