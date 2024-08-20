@@ -36,4 +36,57 @@ Dynamic Routing Protocol Advantages
   - If the best path to a subnet goes down routers automatically discover that and will calculate a new best path if one is available
 
 
+Dynamic Routing Protocols vs Static Routes
+
+  - Using a combination of a dynamic routing protocol and static routes is very common in real world environments
+
+  - In this case the routing protocol will be used to carry the bulk of the network information
+
+  - Static routes can also be used on an as needed basis. For example for backup purposes or for a static route to the Internet (Which will typically be injected into the dynamic routing
+protocol and advertised to the rest of the routers)
+
+
+Routing Protocol Types
+
+  - Routing protocols can be split into two main types
+
+      - Interior Gateway Protocols (IGPs)
+      - Exterior Gateway Protocols (EGPs)
+
+  - IGPs are used for routing within an organization
+
+  - EGPs are used for routing between organizations over the internet
+
+  - The only EGP in use today is BGP (Border Gateway Protocol)
+
+
+IGPs
+
+  - IGPs can be split into two main types:
+      - Distance vector routing protocols
+      - Link state routing protocols
+
+
+Distance Vector Routing Protocols
+
+  - Each router sends its directly connected neighbors a list of all its known networks along with its own distance to each of those networks
+
+  - Do not advertise the entire network topology
+
+  - A router only knows its directly connected neighbors and the lists of networks those neighbors have advertised. It doesn't have detailed topology information beyond its directly connected neighbors.
+
+  - Often called "Routing by rumour"
+
+
+Link State Routing Protocols
+
+  - Each router describes itself and its interfaces to its directly connected neighbors
+
+  - In
+
+
+
+
+
+
 
