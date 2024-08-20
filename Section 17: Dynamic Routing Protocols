@@ -82,7 +82,33 @@ Link State Routing Protocols
 
   - Each router describes itself and its interfaces to its directly connected neighbors
 
-  - In
+  - This information is passed unchanged from one router to another
+
+  - Every router learns the full picture of the network including every router, its interfaces and what they connect to
+
+
+Dynamic Routing protocols:
+                      
+                                      IGPs                                                                              EGPs
+Distance Vector Routing Protocol              Link State Routing Protocol                                    Path Vector routing protocols
+- RIP (Routing Information Protocol)           - OSPF (Open Shortest Path First)                              - BGP (Border Gateway Protocol)
+                                               - IS-IS (Intermediate System-Intermediate System)
+Advanced:
+- EIGRP (Enhanced Interior Gateway Protcol)
+
+
+
+Interior Gateway Protocols
+
+  - All of the IGPs do the same job, which is to advertise routes within an organization and determine the best path or paths
+
+  - An organization will typically pick one of the IGPs
+
+  - If an organization has multiple IGPs in effect (for example because of a merger), information can be redistributed between them. This
+should generally be avoided if possible
+
+
+
 
 
 
