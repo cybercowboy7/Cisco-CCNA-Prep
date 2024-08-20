@@ -1,0 +1,9 @@
+Dynamic Routing Protocols
+
+  - When a routing protocol is used, routers automatically advertise their best paths to known networks to each other
+
+  - Routers use information to determine their own best path to the known destinations
+
+  - When the state of the network changes, such as a link going down or a new subnet being added, the routers update each other
+
+  - Routers will automatically calculate a new best path and update the routing table if the network changes
