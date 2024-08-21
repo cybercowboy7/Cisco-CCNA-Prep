@@ -108,6 +108,78 @@ Interior Gateway Protocols
 should generally be avoided if possible
 
 
+Routing Protocol Metrics
+
+  - A router may receive multiple possible paths to get to a destination network
+
+  - Only the best path will make it into the routing table and be used
+
+  - The different IGPs use different methods to calculate the best path to a destination network
+
+  - Each possible path will be assigned a metric value by the routing protocol which indicates how preferred the path is
+
+  - The lowest metric value is preferred 
+
+  - Distance Vector routers advertise to each other the networks they know about, and their metric to get to each of them
+
+  - Link State Routers advertise all the links in their area of the network to each other
+
+  - Each router will take this information and then make an independent calculation of its own best path to get to each destination
+
+  - If the best path to a destination is lost (for example because a link went down) it will be removed from the routing table and replaced with the next best route
+
+
+RIP Metric - Hop Count
+
+  - RIP uses Hop Count as the metric
+
+  - The maximum hop count by default is 15. Paths which are more than 15 hops away are marked as unreachable.
+
+  - Path R4>5>1 will be preferred for 10.0.1.0/24 in the example
+
+
+OSPF Metric - Cost
+
+  - OSPF uses 'Cost' as the metric, which is automatically derived from interface bandwidth by default
+
+  - You can manually configure the cost of links if you want to manipulate the paths
+
+
+IS-IS Metric - Cost
+
+  - Also uses Cost as the metric, but it is not automatically derived from interface bandwidth. All links have an equal cost by default
+
+  - You can manually configure the cost of links if you want to manipulate the path
+
+  - If you do not manually set the link costs then the path with the lowest hop count will be used
+
+
+EIGRP Metric
+
+  - Uses the bandwidth and delay of links to calculate the metric
+
+  - Load and reliability can also be considered but are ignored by default
+
+  - A fixed delay value is used based on the interface bandwidth, the protocol does not dynamically measure current delay
+
+  - You can manually configure the delay on links if you want to manipulate the path
+
+
+Choosing a Routing Protocol
+
+  - RIP uses hop count and has a default maximum metric of 15. It is not usually used in production networks because of its scalability limitations
+
+  - EIGRP is very simple to maintain, calculates changes very quickly and its metric calculation will normally choose the best path by default. It is typically only supported on Cisco routers however
+
+  - OSPF's metric calculation will typically choose the best path by default. It is an open standard which is supported by all vendor's routers and is the most commonly deployed IGP today. It is however complicated to maintain than EIGRP
+
+  - IS-IS links need to be manually configured or it will use hop count to determine the best path. It is typically only used in Service Provider networks or large organizations with their own MPLS network who choose it because of its scalability.
+
+
+
+
+
+
 
 
 
