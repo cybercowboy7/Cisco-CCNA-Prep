@@ -254,6 +254,80 @@ Floating Static Routes
       ip route 10.0.1.0 255.255.255.0 10.1.3.2 115
 
 
+Loopback Interfaces
+
+  - Loopback interfaces are logical interfaces
+
+  - They allow you to assign an IP address to a router or L3 switch, which is not tied to a physical interface
+
+  - Because they do not have any physical attributes which can fail, loopback interfaces never go down
+
+  - Loopbacks are logical so they cannot be physically in the same subnet as other devices, so they are assigned a /32 subnet mask to avoid wasting IP address
+
+  - Best practice to assign a loopback interface to your routers
+
+  - Commonly used for traffic that ternminates on the router itself
+
+  - This could be management traffic, VOIP, BGP peering etc
+
+  - This provides redundancy if there are multiple paths to the router
+
+  - Also used to identify the router (Router ID) in OSPF
+
+      interface loopback 0
+      ip address 192.168.1.1 255.255.255.255
+
+
+Adjacencies
+
+  - IGP routing protocols are configured under Global config mode and then enabled on individual interfaces
+
+  - When the routing protocol is enabled on an interface the router will look for other devices on the link which are also running the routing protocol
+
+  - The router does this by sending out and listening for hello packets
+
+  - When a matching peer is found, the routers form an adjacency with each other
+
+  - They then exchange routing information
+
+  - Modern routing protocols use multicast for the hello packets
+
+  - This is more efficient than broadcast which was used by earlier protocols
+
+  - Only routers which are running the same routing protocol will process the packet
+
+
+Passive Interfaces
+
+  - Passive interfaces allow you to include an IP subnet in the routing protocol without sending updates out of the interface
+
+  - Best practice to configure loopback interfaces as passive interfaces
+
+  - It is impossible to form an adjacency on a loopback interface because they are not physical interfaces
+
+  - Making the loopback passive means that it will be advertised by the routing protocol but it will not waste resources sending out and listening for hello packets
+
+
+Route Precedence
+
+  - A router's main job is to forward packets received towards their desination, based on the packet's destination IP address
+
+  - It decides where to forward a packet based on the routes it has learned
+
+  - The best route for a packet decision is based on:
+
+      - Longest prefix (most specific)
+
+      - AD
+
+      - Metric
+
+
+      
+
+
+
+
 
 
 
