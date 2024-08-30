@@ -1,1 +1,36 @@
+Ping Responses
 
+  - If the router discards the packet (for example it is blocked by an Access Control List):
+      UUUUU
+
+  - If the router does not have a corresponding route or the destination IP address does not respond
+      .....
+
+  - If the ping is successful
+      .!!!!
+
+
+Traceroute
+
+  - Takes advantage of TTL header in IP packet (Time To Live)
+
+  - ctrl shift 6 will cancel traceroute
+
+
+Other Tools
+
+  - Show ip interface brief
+
+  - Show mac address-table
+
+
+Layer 4:
+
+  - telnet
+
+
+DNS
+
+  - nslookup
+
+  - ping by FQDN
